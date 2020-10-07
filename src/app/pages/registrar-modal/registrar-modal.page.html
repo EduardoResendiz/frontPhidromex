@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Registrarse</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="end" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="enviarForm(formulario)" #formulario="ngForm">
+    <ion-item>
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input name="email" [(ngModel)]= "postUser.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre(s):</ion-label>
+      <ion-input name="nombre" [(ngModel)]= "postUser.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido(s):</ion-label>
+      <ion-input name="apellido" [(ngModel)]= "postUser.apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]= "postUser.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Comfirmar Contraseña:</ion-label>
+      <ion-input  type="password" name="password2" [(ngModel)]= "postUser.password2"></ion-input>
+    </ion-item>
+    <br><br>
+    <ion-button type="submit" expand="block"  shape="round">
+      Click me
+    </ion-button>
+  </form>
+</ion-content>

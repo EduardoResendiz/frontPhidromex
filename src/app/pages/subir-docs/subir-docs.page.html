@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/nominacion-update"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Evidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div>
+  <hr class="lineaN">
+</div>
+<ion-content  ng-controller="MainCtrl">
+  <ion-card mode="ios" style="width: 600px; height: auto; margin: auto; display: block;">
+    <ion-card-content>
+      <p style="margin: 3%; text-align: justify;">
+        Cuando haya leido el procedimiento y haber realizado lo correspondiente de cada elemento que esta situado en el SASISOPA
+        deberas subir una evidencia que justifique que hayas hecho lo solicitado en el procedimiento.
+       </p>
+      <form (submit)="uploadPhoto(title, description)">
+        <ion-item>
+          <ion-label position="floating">Titulo</ion-label>
+          <ion-input type="text" #title required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Descripcion </ion-label>
+          <ion-input type="text" required #description></ion-input>
+        </ion-item>
+        <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+        <ion-card>
+          <ion-card-content>
+            <img [src]="photoSelected" style="width: 30%; display: block; margin: auto;" alt="No image" (click)="photoInput.click()">
+          </ion-card-content>
+        </ion-card>
+        <ion-button type="submit" class="btn btn-primary btn-block" expand="block" fill="clear" shape="round">
+          Subir
+        </ion-button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <div *ngFor ="let photo of photos">
+    <ion-card>
+      <p>
+        Fecha:{{photo.created_at}}
+        /Evidences:{{photo.path}}
+      </p>
+    </ion-card>
+    <img  src="http://localhost:3000/{{photo.path}} " style="text-align: center; display: block; width: 200px; height: auto;">
+  </div> -->
+</ion-content>

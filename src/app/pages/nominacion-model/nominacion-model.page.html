@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Consulta Nominacion</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="end" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar (ionChange)="onSearchChange($event)" debouce></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item *ngFor="let data of getData | filtro: searchText: 'nombre' ">
+            <ion-label>
+              <h2>{{data.nombre}}</h2>
+              <h3>{{data.apellidos}}</h3>
+              <h6>Teléfono: {{data.telefono}}</h6>
+              <h6>Placa Tracto: {{data.placaTracto}}</h6>
+              <h6>RFC: {{data.rfc}}</h6>
+              <h6>N°Licencia: {{data.licencia}}</h6>
+              <ion-buttons slot="end">
+                <ion-button (click)=" verMas(data._id)">
+                  <ion-icon slot="end" name="eye-outline"></ion-icon>
+                </ion-button>
+                <ion-button (click)="settings(data._id)">
+                  <ion-icon slot="end" name="build-outline"></ion-icon>
+                </ion-button>
+                <ion-button (click)="delete(data._id)">
+                  <ion-icon slot="end" name="trash-outline"></ion-icon>
+                </ion-button>
+                <ion-button (click)="upload(data._id)" expand="block" fill="clear" shape="round">
+                  <ion-icon slot="end" name="cloud-upload-outline"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

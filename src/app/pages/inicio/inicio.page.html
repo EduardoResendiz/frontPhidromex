@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Hidromex</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-item slot="end" *ngFor="let data of datosUser">
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label>{{data.nombre}}</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<app-tabs></app-tabs>
+</ion-content>
